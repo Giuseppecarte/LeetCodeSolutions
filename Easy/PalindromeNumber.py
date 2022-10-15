@@ -1,12 +1,3 @@
-class Solution:
-    def isPalindrome(self, x):
-        forward = [i for i in str(x)]
-        reverse = [i for i in str(x)[::-1]]
-        if forward == reverse:
-            return True
-        else:
-            return False
-  
 '''
         Submission performance
 
@@ -23,3 +14,13 @@ class Solution:
 - Memory better than ?? 
 
 '''
+
+class Solution:
+    def isPalindrome(self, x):
+        forward = [i for i in str(x)]
+        reverse = [i for i in str(x)[::-1]]
+        if forward == reverse:
+            return True
+        else:
+            return False
+  

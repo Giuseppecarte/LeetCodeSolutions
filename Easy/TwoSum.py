@@ -1,3 +1,20 @@
+'''
+        Submission performance 
+
+- 57/57 Test Cases 
+
+- Runtime: 1120ms 
+ 
+- Memory Usage: 14.9 MB
+
+        Submission Results 
+
+- Memory better than 78.06% of the total submissions
+
+- Runtime better than 35.53% of the total submissions 
+
+'''
+
 class Solution:
     def twoSum(self, nums, target):    
         def solve_equation(value,target=target):
@@ -27,20 +44,3 @@ class Solution:
         return [firstIndex, secondIndex]
 
 
-
-'''
-        Submission performance 
-
-- 57/57 Test Cases 
-
-- Runtime: 1120ms 
- 
-- Memory Usage: 14.9 MB
-
-        Submission Results 
-
-- Memory better than 78.06% of the total submissions
-
-- Runtime better than 35.53% of the total submissions 
-
-'''
