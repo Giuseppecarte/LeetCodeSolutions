@@ -1,4 +1,4 @@
-''' Contains Duplicare
+''' Contains Duplicate
 
 - Runtime: 618 ms 
 
