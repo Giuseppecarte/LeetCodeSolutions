@@ -52,6 +52,3 @@ class Solution:
             return self.valid_subsquares(board)
 
         else: return False
-
-
-print(Solution().isValidSudoku(board2))
