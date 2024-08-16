@@ -1,28 +1,39 @@
 from typing import List
+from itertools import combinations
+
+candidates = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+target = 30
+
+
+
+
 
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
-        from itertools import combinations
-        if sum(candidates) < target:
-            return []
-        else:
-            # Remove all the values from candidates that are higher than the target
-            candidates = list(set([_ for _ in candidates if _ <= target]))
-            print(len(candidates), len(list(set(candidates))))
-            output = []
-            for combination_size in range(1, len(candidates) + 1):
-                for combination in combinations(candidates,combination_size):
-                    sorted_combination = sorted(list(combination))
-                    if sum(sorted_combination) == target and not sorted_combination in output:
-                        output.append(sorted_combination)
-            return output
+        print('Sorting')
+        values = sorted([_ for _ in candidates if _ <= target])
+        print('End of sort')
+        results = []
 
-'''Time Exceeded'''
+        # If the sum of all the values is less than target it does not make sense to check them
+        if sum(values) >= target:
+            for size in range(1,len(values)+1):
+                print(size)
+                # it does not make sense to keep looking if that given a size of array the minimum combination of values is higher than the target
+                min_combination_value = sum(values[:size])
+                max_combination_value  = sum(values[-size:])
 
-candidates = [14,6,25,9,30,20,33,34,28,30,16,12,31,9,9,12,34,16,25,32,8,7,30,12,33,20,21,29,24,17,27,34,11,17,30,6,32,21,27,17,16,8,24,12,12,28,11,33,10,32,22,13,34,18,12]
-target = 27
-sol = Solution()
-print(sol.combinationSum2(candidates, target))
+                if min_combination_value <= target and max_combination_value >= target:
+                    if len(set(values)) > 1:
+                        combination_list = set(combinations(values,size))
 
+                        for ith_comb in combination_list:
+                            if sum(ith_comb) == target:
+                                results.append(ith_comb)
+                    else:
+                        results.append([values[0]]*(target//values[0]))
 
+        return results
     
+
+print(Solution().combinationSum2(candidates=candidates, target=target))
